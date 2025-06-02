@@ -18,40 +18,39 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 20px 40px;
+  background-color: #f2f2f2;
 }
 
 .logo {
+  font-size: 1.8rem;
   font-weight: bold;
-  font-size: 1.2rem;
 }
 
 .logo span {
+  font-size: 1rem;
   margin-left: 8px;
+  color: #666;
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 30px;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: black;
+  color: #333;
   font-weight: 500;
 }
 
-.search-box {
-  padding: 0.3rem 0.6rem;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+/* hide hamhurger in pc */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
+
 
 /* Hero */
 .hero {
@@ -199,13 +198,13 @@ body {
 /* Footer */
 footer {
   display: flex;
-  justify-content: center;    /* 居中对齐，也可以用 space-between */
-  align-items: center;        /* 垂直居中 */
-  gap: 40px;                  /* 两个项目之间的间距 */
+  justify-content: center;    
+  align-items: center;        
+  gap: 40px;                  
   padding: 20px;
   background-color: #333;
   color: white;
-  flex-wrap: wrap;            /* 小屏幕时自动换行 */
+  flex-wrap: wrap;            
 }
 
 footer p {
@@ -214,12 +213,49 @@ footer p {
 
 
 /* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
+@media (max-width: 390px) {
+  .hero-text {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 12px;
   }
-  .hero img {
-    height: auto;
+
+  .shop-button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  @media (max-width: 390px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: row;
+    position: relative;
+  }
+}
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
   }
 }
