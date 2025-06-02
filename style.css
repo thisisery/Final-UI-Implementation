@@ -212,21 +212,15 @@ footer p {
 }
 
 
-/* Responsive */
+/* Responsive mobile*/
 @media (max-width: 390px) {
-  .hero-text {
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 12px;
+  .navbar {
+    flex-direction: row;
+    padding: 16px;
+    position: relative;
   }
-
-  .shop-button {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  @media (max-width: 390px) {
-  .nav-links {
+  
+    .nav-links {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -238,20 +232,25 @@ footer p {
     padding: 10px 0;
     z-index: 1000;
   }
-
-  .nav-links.show {
+  
+    .nav-links.show {
     display: flex;
   }
 
   .hamburger {
     display: block;
   }
-
-  .navbar {
-    flex-direction: row;
-    position: relative;
+  
+    .hero-text {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 12px;
   }
-}
+
+  .shop-button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
 
   footer {
     flex-direction: column;
