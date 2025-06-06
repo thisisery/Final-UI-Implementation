@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -19,13 +19,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 40px;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
   background: transparent; 
 }
+
 
 .nav-links a {
   color: white;
@@ -35,6 +36,7 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
+  color: #ffffff
 }
 
 .logo span {
@@ -85,14 +87,14 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 2.8rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
   margin-bottom: 1rem;
   color: #F68227; 
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #fff;
 }
@@ -116,13 +118,13 @@ body {
 
 /* Intro */
 .intro {
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
 }
 
 .intro h1 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .intro p {
@@ -133,16 +135,16 @@ body {
 /* Products */
 .products {
   text-align: center;
-  padding: 2rem;
+  padding: 4rem;
 }
 
 .products h2 {
   font-size: 1.6rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .products p {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: #444;
 }
 
@@ -183,11 +185,14 @@ body {
 .connect {
   text-align: center;
   padding: 2rem;
-  background: #f9f9f9;
 }
 
 .connect h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.connect p {
+  margin-bottom: 1rem;
 }
 
 .social-post {
@@ -219,6 +224,14 @@ body {
   text-align: center;
 }
 
+.reviews h2{
+  margin-bottom: 1rem;
+}
+
+.reviews p{
+  margin-bottom: 1rem;
+}
+
 .review-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -244,8 +257,7 @@ footer {
   align-items: center;        
   gap: 40px;                  
   padding: 20px;
-  background-color: #333;
-  color: white;
+  color: #333;
   flex-wrap: wrap;            
 }
 
@@ -255,48 +267,72 @@ footer p {
 
 
 /* Responsive mobile*/
-@media (max-width: 390px) {
+@media (max-width: 420px) {
   .navbar {
-    flex-direction: row;
-    padding: 16px;
-    position: relative;
-  }
-  
-    .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f2f2f2;
-    width: 100%;
     position: absolute;
-    top: 70px;
+    top: 0;
     left: 0;
-    padding: 10px 0;
+    width: 100%;
+    padding: 16px 20px;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
-  }
-  
-    .nav-links.show {
-    display: flex;
+    background: transparent; 
   }
 
   .hamburger {
     display: block;
-  }
-  
-    .hero-text {
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 12px;
+    font-size: 2rem;
+    color: white;  
+    z-index: 2000;
+    position: relative;
   }
 
+  .logo {
+    color: white;
+    font-size: 1.4rem;
+  }
+
+  .logo span {
+    font-size: 0.9rem;
+    color: white;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255,255,255,0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .nav-links a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+  }
+
+  .nav-links {
+    background-color: white; 
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
   .shop-button {
     font-size: 0.9rem;
     padding: 10px 16px;
   }
+
+  
 
   footer {
     flex-direction: column;
     text-align: center;
     gap: 8px;
   }
-}
