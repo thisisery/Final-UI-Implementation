@@ -9,11 +9,12 @@
 <body>
 
   <header class="navbar">
-    <div class="logo">PJ</div>
+    <div class="logo">PJ<span>Penny Juice</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Shopping Cart</a>
+      <a href="index.html">Home</a>
+      <a href="listofproduct.html">Products</a>
+      <a href="cart.html">Shopping Cart</a>
     </nav>
   </header>
 
@@ -47,26 +48,44 @@
     </section>
 
     <!-- Order Summary -->
-    <section class="section summary">
-      <h2>Order Summary</h2>
-      <button class="secondary-btn">Edit Order</button>
-      <div class="product-card">
-        <img src="product-main.jpg" alt="Citrus Bliss" />
-        <p><strong>Citrus Bliss</strong></p>
-        <p>Quantity: 2 | Price: $20</p>
-      </div>
-    </section>
+<section class="section summary">
+  <h2>Order Summary</h2>
+  <a href="cart.html" class="secondary-btn">Edit Order</button></a>
+  <div id="checkout-summary"></div> 
+  <ul class="summary-list">
+    <li><span>💰 Subtotal</span><span class="subtotal-price">$0.00</span></li>
+    <li><span>🚚 Shipping Fee</span><span>Free Shipping</span></li>
+    <li><span>🛍️ Total</span><span class="total-price">$0.00</span></li>
+  </ul>
+</section>
 
-    <!-- Order Confirmation -->
-    <section class="section">
-      <h2>Order Confirmation</h2>
-      <p>Thank you!</p>
-      <div class="action-group">
-        <button class="secondary-btn">Continue Shopping</button>
-        <button class="primary-btn">Track Order</button>
-      </div>
-    </section>
+
   </main>
 
 </body>
+
+<script>
+function toggleMenu() {
+  const nav = document.querySelector('nav');
+  nav.classList.toggle('show');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const subtotal = localStorage.getItem('cartSubtotal') || '0.00';
+
+  const summaryList = document.querySelector('.summary-list');
+
+  cartItems.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span>${item.name} × ${item.quantity}</span><span>$${item.total.toFixed(2)}</span>`;
+    summaryList.insertBefore(li, summaryList.firstChild); 
+  });
+
+  
+  document.querySelector('.subtotal-price').textContent = `$${subtotal}`;
+  document.querySelector('.total-price').textContent = `$${subtotal}`;
+});
+
+</script>
 </html>
