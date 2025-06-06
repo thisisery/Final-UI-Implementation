@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Penny Juice - Products</title>
+  <title>Penny Juice | Products List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="productliststyle.css" />
 </head>
 <body>
   <header class="header">
-    <div class="logo">PJ&nbsp;&nbsp;Penny Juice</div>
+    <div class="logo">PJ<span>Penny Juice</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Shopping Cart</a>
+      <a href="index.html">Home</a>
+      <a href="listofproduct.html">Products</a>
+      <a href="cart.css">Shopping Cart</a>
     </nav>
   </header>
 
@@ -21,70 +26,67 @@
       <div class="hero-text">
         <h1>Discover the Juicy Goodness</h1>
         <p>Explore our wide range of fresh juices made just for you.</p>
-        <button>Shop Now</button>
+        <button class="shop-button" onclick="scrollToProducts()">Shop Now</button>
       </div>
       <div class="hero-image">
         <img src="material/juicefamily.jpg" alt="Family drinking juice" />
       </div>
     </section>
 
-    <section class="ingredients">
-      <h2>Featured Ingredients</h2>
-      <div class="ingredient-list">
-        <div class="ingredient">
-          <img src="orange.png" alt="Oranges" />
-          <p>Oranges</p>
-          <span>Vitamin C Rich</span>
+    <section class="whypennyjuice">
+      <h2>Why Penny Juice?</h2>
+      <div class="reason-list">
+        <div class="reason">
+          <img src="material/premiun.svg" alt="Premium" />
+          <p>Premium Quality</p>
         </div>
-        <div class="ingredient">
-          <img src="watermelon.png" alt="Watermelon" />
-          <p>Watermelon</p>
-          <span>Hydrating</span>
+        <div class="reason">
+          <img src="material/fruit.svg" alt="fruit" />
+          <p>100% Juice Concentrate</p>
         </div>
-        <div class="ingredient">
-          <img src="berries.png" alt="Berries" />
-          <p>Berries</p>
-          <span>Antioxidants</span>
+        <div class="reason">
+          <img src="material/block.svg" alt="block" />
+          <p>No Sugar Added</p>
         </div>
-        <div class="ingredient">
-          <img src="pineapple.png" alt="Pineapple" />
-          <p>Pineapple</p>
-          <span>Digestive Aid</span>
+        <div class="reason">
+          <img src="material/kitchen.svg" alt="kitchen" />
+          <p>Non Refrigerated</p>
         </div>
       </div>
     </section>
 
-    <section class="products">
+    <section class="products" id="product-display">
       <h2>Popular Juices</h2>
       <div class="product-grid">
+        <a href="product.html" class="product-card">
+          <img src="material/pl/orangpl.jpg" alt="Citrus Bliss" />
+          <p class="label">Orange Juice</p>
+          <span>500ml</span>
+        </a>
+      
         <div class="product-card">
-          <img src="material/orange.jpg" alt="Citrus Bliss" />
-          <p class="label">Citrus Bliss</p>
+          <img src="material/pl/Summer Splashpl.jpg" alt="Summer Splash" />
+          <p class="label">Watermelon Juice</p>
           <span>500ml</span>
         </div>
         <div class="product-card">
-          <img src="material/Summer Splash.jpg" alt="Summer Splash" />
-          <p class="label">Summer Splash</p>
+          <img src="material/pl/berrypl.jpg" alt="Berry Burst" />
+          <p class="label">Berry Juice</p>
           <span>500ml</span>
         </div>
         <div class="product-card">
-          <img src="material/berry.jpg" alt="Berry Burst" />
-          <p class="label">Berry Burst</p>
+          <img src="material/pl/stawberrypl.jpg" alt="stawberry" />
+          <p class="label">Stawberry Juice</p>
           <span>500ml</span>
         </div>
         <div class="product-card">
-          <img src="material/stawberry.jpg" alt="stawberry" />
-          <p class="label">Stawberry Lover</p>
+          <img src="material/pl/mangopl.jpg" alt="Mango" />
+          <p class="label">Mango Juice</p>
           <span>500ml</span>
         </div>
         <div class="product-card">
-          <img src="material/mango.jpg" alt="Mango" />
-          <p class="label">Mango</p>
-          <span>500ml</span>
-        </div>
-        <div class="product-card">
-          <img src="material/peach.jpg" alt="Peach" />
-          <p class="label">Peach</p>
+          <img src="material/pl/peachpl.jpg" alt="Peach" />
+          <p class="label">Peach Juice</p>
           <span>500ml</span>
         </div>
       </div>
@@ -96,4 +98,20 @@
     <p>Follow Us: @pennyjuice</p>
   </footer>
 </body>
+
+<script>
+function toggleMenu() {
+  const nav = document.querySelector('nav');
+  nav.classList.toggle('show');
+}
+
+function scrollToProducts() {
+  const productSection = document.getElementById('product-display');
+  productSection.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+</script>
+
 </html>
