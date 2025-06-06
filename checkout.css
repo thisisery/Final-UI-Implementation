@@ -1,29 +1,47 @@
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
-  color: #0f48a9;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+  color: #111;
+  background: white;
 }
 
 .navbar {
+    position: relative;
   display: flex;
   justify-content: space-between;
+  padding: 20px 40px;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #ffe129;
+  border-bottom: 1px solid #eee;
 }
 
 .navbar .logo {
+  font-size: 1.8rem;
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #0f48a9;
+}
+
+.navbar .logo span {
+  font-size: 1rem;
+  margin-left: 8px;
+  color: #333;
 }
 
 .navbar nav a {
-  margin: 0 1rem;
+  margin: 0 10px;
   text-decoration: none;
-  color: #0f48a9;
-  font-weight: 500;
+  color: #333;
+}
+
+/* hide hamhurger in pc */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .checkout-container {
@@ -37,7 +55,7 @@ body {
 }
 
 h2 {
-  color: #ff6004;
+  color: #ff5436;
   margin-bottom: 1rem;
 }
 
@@ -55,7 +73,7 @@ h2 {
 
 .primary-btn {
   padding: 0.7rem 1.5rem;
-  background-color: #0f48a9;
+  background-color: #2c3f50;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -67,8 +85,8 @@ h2 {
 .secondary-btn {
   padding: 0.7rem 1.5rem;
   background-color: white;
-  color: #0f48a9;
-  border: 2px solid #0f48a9;
+  color: #2c3f50;
+  border: 2px solid #2c3f50;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
@@ -103,8 +121,8 @@ h2 {
 }
 
 .product-card {
-  background-color: #fefcf0;
-  border: 1px solid #f6b827;
+  background-color: #eee;
+  border: 1px solid #eee;
   border-radius: 8px;
   padding: 1rem;
   max-width: 300px;
@@ -120,4 +138,49 @@ h2 {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+
+    .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .checkout-container {
+    padding: 1rem;
+  }
+
+  .payment-options {
+    flex-direction: column;
+  }
+
+  .tab {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
 }
