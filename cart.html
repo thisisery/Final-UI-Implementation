@@ -4,49 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Penny Juice | Shopping Cart</title>
+
   <link rel="stylesheet" href="cart.css"/>
 </head>
 <body>
 
   <header class="navbar">
-    <div class="logo">PJ</div>
+    <div class="logo">PJ<span>Penny Juice</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Shopping Cart</a>
+      <a href="index.html">Home</a>
+      <a href="listofproduct.html">Products</a>
+      <a href="cart.html">Shopping Cart</a>
     </nav>
   </header>
 
-  <main class="cart-container">
-    <h1 class="cart-title">🛒 Your Cart</h1>
+<main class="cart-page">
 
-    <section class="cart-item">
-      <img src="product-main.jpg" alt="Citrus Bliss" class="item-image"/>
-      <div class="item-details">
-        <p class="item-name">Citrus Bliss</p>
-        <p>Quantity: 2 | Price: $20</p>
-        <div class="item-actions">
-          <span>🗑️</span>
-          <span>❤️</span>
+  <section class="cart-row">
+    <div class="cart-label">
+      <h1>🛒 Your Cart</h1>
+    </div>
+    <div class="cart-items">
+      <div class="cart-item">
+        <img src="material/pl/orangpl.jpg" alt="Orange Juice" class="item-image" />
+        <div class="item-details">
+          <p class="item-name">Orange Juice</p>
+          <p>Quantity: <span class="quantity">1</span> | Price: $<span class="item-total">10</span></p>
+
+        <div class="quantity-controls">
+      <button class="decrease">➖</button>
+      <span class="quantity">1</span>
+      <button class="increase">➕</button>
+    </div>
+
+    <div class="item-actions">
+            <span>🗑️</span>
+            <span>❤️</span>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="order-summary">
+      
+    </div>
+  </section>
+
+  <section class="cart-row">
+    <div class="cart-label">
       <h2>Order Summary</h2>
+    </div>
+    <div class="order-summary">
       <ul class="summary-list">
-        <li><span>💰 Subtotal</span><span>$20</span></li>
-        <li><span>🚚 Shipping Fee</span><span>Free Shipping</span></li>
-        <li><span>🛍️ Total Cost</span><span>$20</span></li>
-        <li class="checkout-row"><span>🛒 Checkout</span><a href="#" class="checkout-btn">Proceed to Checkout</a></li>
+  <li><span>💰 Subtotal</span><span class="subtotal-price">$10</span></li>
+  <li><span>🚚 Shipping Fee</span><span>Free Shipping</span></li>
+  <li><span>🛍️ Total</span><span class="total-price">$10</span></li>
+
+        <li class="checkout-row">
+          <span>🛒 Checkout</span>
+          <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+        </li>
       </ul>
-    </section>
-  </main>
+    </div>
+  </section>
+
+</main>
 
   <footer class="footer">
     <p>Contact Us: contact@pennyjuice.com</p>
     <p>Follow Us: @pennyjuice</p>
   </footer>
+
+  <script>
+
+
+function toggleMenu() {
+  const nav = document.querySelector('nav');
+  nav.classList.toggle('show');
+}
+
+
+document.querySelectorAll('.cart-item').forEach(item => {
+  const increaseBtn = item.querySelector('.increase');
+  const decreaseBtn = item.querySelector('.decrease');
+  const quantityEl = item.querySelector('.quantity');
+  const priceEl = item.querySelector('.item-total');
+
+  const unitPrice = 10;
+
+  increaseBtn.addEventListener('click', () => {
+    let quantity = parseInt(quantityEl.textContent);
+    quantity++;
+    quantityEl.textContent = quantity;
+    priceEl.textContent = (quantity * unitPrice).toFixed(2);
+    updateSummary();
+  });
+
+  decreaseBtn.addEventListener('click', () => {
+    let quantity = parseInt(quantityEl.textContent);
+    if (quantity > 1) {
+      quantity--;
+      quantityEl.textContent = quantity;
+      priceEl.textContent = (quantity * unitPrice).toFixed(2);
+      updateSummary();
+    }
+  });
+});
+function updateSummary() {
+  let total = 0;
+  document.querySelectorAll('.cart-item').forEach(item => {
+    const quantity = parseInt(item.querySelector('.quantity').textContent);
+    total += quantity * 10;
+  });
+
+  document.querySelector('.subtotal-price').textContent = `$${total.toFixed(2)}`;
+  document.querySelector('.total-price').textContent = `$${total.toFixed(2)}`;
+}
+
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+  const cartData = [];
+
+  document.querySelectorAll('.cart-item').forEach(item => {
+    const name = item.querySelector('.item-name').textContent;
+    const quantity = parseInt(item.querySelector('.quantity').textContent);
+    const total = parseFloat(item.querySelector('.item-total').textContent);
+
+    cartData.push({
+      name: name,
+      quantity: quantity,
+      total: total
+    });
+  });
+
+  const subtotal = parseFloat(document.querySelector('.subtotal-price').textContent.replace('$', ''));
+
+  localStorage.setItem('cartItems', JSON.stringify(cartData));
+  localStorage.setItem('cartSubtotal', subtotal.toFixed(2));
+});
+
+</script>
 
 </body>
 </html>
