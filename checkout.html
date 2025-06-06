@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penny Juice | Checkout</title>
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">PJ</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Shopping Cart</a>
+    </nav>
+  </header>
+
+  <main class="checkout-container">
+    <!-- Shipping Info -->
+    <section class="section">
+      <h2>Shipping Information</h2>
+      <form class="form">
+        <input type="text" placeholder="Enter recipient's name" />
+        <input type="text" placeholder="Enter street address" />
+        <input type="text" placeholder="Enter city" />
+        <input type="text" placeholder="Enter zip code" />
+        <input type="text" placeholder="Enter phone number" />
+        <button type="button" class="primary-btn">Next</button>
+      </form>
+    </section>
+
+    <!-- Payment Method -->
+    <section class="section">
+      <h2>Payment Method</h2>
+      <form class="form">
+        <input type="text" placeholder="Enter card number" />
+        <input type="text" placeholder="MM/YY" />
+        <input type="text" placeholder="Enter CVV" />
+        <div class="payment-options">
+          <button type="button" class="tab active">Credit Card</button>
+          <button type="button" class="tab">PayPal</button>
+        </div>
+        <button type="button" class="primary-btn">Proceed to Review</button>
+      </form>
+    </section>
+
+    <!-- Order Summary -->
+    <section class="section summary">
+      <h2>Order Summary</h2>
+      <button class="secondary-btn">Edit Order</button>
+      <div class="product-card">
+        <img src="product-main.jpg" alt="Citrus Bliss" />
+        <p><strong>Citrus Bliss</strong></p>
+        <p>Quantity: 2 | Price: $20</p>
+      </div>
+    </section>
+
+    <!-- Order Confirmation -->
+    <section class="section">
+      <h2>Order Confirmation</h2>
+      <p>Thank you!</p>
+      <div class="action-group">
+        <button class="secondary-btn">Continue Shopping</button>
+        <button class="primary-btn">Track Order</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
