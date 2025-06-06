@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
 }
 
 .header {
+     position: relative;
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
@@ -19,8 +21,14 @@ body {
 }
 
 .logo {
+  font-size: 1.8rem;
   font-weight: bold;
-  font-size: 18px;
+}
+
+.logo span {
+  font-size: 1rem;
+  margin-left: 8px;
+  color: #333;
 }
 
 .nav a {
@@ -29,23 +37,26 @@ body {
   color: #333;
 }
 
-.search {
-  padding: 5px;
-  border: 1px solid #ccc;
-  margin-left: 10px;
+/* hide hamhurger in pc */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 40px;
-  background: #f9f9f9;
 }
 
 .hero-text {
-  max-width: 50%;
+  max-width: 45%;
 }
+
 
 .hero-text h1 {
   font-size: 28px;
@@ -59,32 +70,40 @@ body {
 }
 
 .hero-text button {
-  padding: 10px 20px;
-  background: #111;
+  padding: 10px 30px;
+  background: #FFE129;
   color: white;
   border: none;
+    border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-text button:hover {
+  background-color: #F68227;
 }
 
 .hero-image img {
   max-width: 400px;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.ingredients {
+.whypennyjuice {
   text-align: center;
-  padding: 40px;
+  padding: 100px;
 }
 
-.ingredients h2 {
+.whypennyjuice h2 {
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
-.ingredient-list {
+.reason-list {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
@@ -95,13 +114,8 @@ body {
   margin-bottom: 10px;
 }
 
-.ingredient p {
+.reason-list p {
   font-weight: bold;
-}
-
-.ingredient span {
-  font-size: 12px;
-  color: #555;
 }
 
 .products {
@@ -114,18 +128,25 @@ body {
   margin-bottom: 20px;
 }
 
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);  
+  gap: 2rem;  
+  padding: 2rem;
+  justify-items: center;
 }
 
 .product-card {
-  text-align: left;
+border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  background: #fafafa;
 }
 
 .product-card img {
-  width: 100%;
+  width: 80%;
   border-radius: 6px;
   margin-bottom: 10px;
 }
@@ -134,10 +155,87 @@ body {
   font-weight: bold;
 }
 
-.footer {
-  padding: 20px 40px;
-  background: #f3f3f3;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
+
+footer {
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  gap: 40px;                  
+  padding: 20px;
+  color: #333;
+  flex-wrap: wrap;            
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 420px) {
+  .hearder {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .header nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .header nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+    .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .header nav {
+    display: none;
+  }
+
+  .header nav.show {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .whypennyjuice {
+    padding: 60px 60px;
+  }
+
+  .reason-list {
+    gap: 30px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;  
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
 }
