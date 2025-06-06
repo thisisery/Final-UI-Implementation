@@ -9,50 +9,31 @@
 <body>
 
   <header class="navbar">
-    <div class="logo">PJ</div>
+    <div class="logo">PJ<span>Penny Juice</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Shopping Cart</a>
+      <a href="index.html">Home</a>
+      <a href="listofproduct.html">Products</a>
+      <a href="cart.html">Shopping Cart</a>
     </nav>
   </header>
 
   <main class="product-detail">
     <div class="product-hero">
-      <img src="product-main.jpg" alt="Citrus Bliss" class="product-image"/>
+      <img src="material/pl/orangpl.jpg" alt="Citrus Bliss" class="product-image"/>
       <div class="product-info">
         <p class="product-price">$10</p>
-        <h1 class="product-title">Citrus Bliss</h1>
+        <h1 class="product-title">Orange Juice</h1>
         <p class="product-description">100% natural orange juice, no added sugar</p>
         <div class="buttons">
+          <a href="cart.html"> 
           <button class="btn-outline">View Shopping Cart</button>
-          <button class="btn-filled">Add to Cart</button>
+          </a>
+          <button class="btn-filled" id="addToCartBtn">Add to Cart</button>
         </div>
       </div>
     </div>
-
-    <section class="related-products">
-      <h2>Related Products</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="juice4.jpg" alt="Citrus Bliss" />
-          <p class="product-name">Citrus Bliss</p>
-          <p class="product-size">500ml</p>
-        </div>
-        <div class="product-card">
-          <img src="juice2.jpg" alt="Summer Splash" />
-          <p class="product-name">Summer Splash</p>
-          <p class="product-size">500ml</p>
-        </div>
-        <div class="product-card">
-          <img src="juice3.jpg" alt="Berry Burst" />
-          <p class="product-name">Berry Burst</p>
-          <p class="product-size">500ml</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="customer-reviews">
+<section class="customer-reviews">
       <h2>Customer Reviews</h2>
       <div class="review-grid">
         <div class="review-card">
@@ -73,6 +54,29 @@
         </div>
       </div>
     </section>
+    
+    <section class="related-products">
+      <h2>Related Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="material/pl/mangopl.jpg" alt="Mango" />
+          <p class="product-name">Mango Juice</p>
+          <p class="product-size">500ml</p>
+        </div>
+        <div class="product-card">
+          <img src="material/pl/Summer Splashpl.jpg" alt="Summer Splash" />
+          <p class="product-name">Watermelon Juice</p>
+          <p class="product-size">500ml</p>
+        </div>
+        <div class="product-card">
+          <img src="material/pl/berrypl.jpg" alt="Berry Burst" />
+          <p class="product-name">Berry Juice</p>
+          <p class="product-size">500ml</p>
+        </div>
+      </div>
+    </section>
+
+    
   </main>
 
   <footer class="footer">
@@ -81,4 +85,28 @@
   </footer>
 
 </body>
+
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('show');
+  }
+
+    const addToCartBtn = document.getElementById('addToCartBtn');
+
+  addToCartBtn.addEventListener('click', () => {
+  
+    addToCartBtn.textContent = "Added ✅";
+    addToCartBtn.disabled = true;
+    addToCartBtn.style.backgroundColor = "#999"; 
+    
+    setTimeout(() => {
+      addToCartBtn.textContent = "Add to Cart";
+      addToCartBtn.disabled = false;
+      addToCartBtn.style.backgroundColor = ""; 
+    }, 2000);
+  });
+</script>
+
 </html>
