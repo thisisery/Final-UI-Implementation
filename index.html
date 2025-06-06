@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penny Juice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">PJ <span>Penny Juice</span></div>
+<section class="hero">
+  <header class="navbar">
+    <div class="logo">PJ <span>Penny Juice</span></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="listofproduct.html">Product</a>
+      <a href="cart.css">Shopping Cart</a>
+    </nav>
+  </header>
 
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-     <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Product</a>
-        <a href="#">Shopping Cart</a>
-     </nav>
-    </header>
-
- <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-text">
-    <h1>Deliciously natural fruit juice</h1>
+    <h1>Deliciously Natural Fruit Juice</h1>
     <p>Made just for little ones and the people who cares for them</p>
+    <a href="listofproduct.html">
     <button class="shop-button">Shop All</button>
+    </a>
   </div>
 </section>
+
 
 
   <section class="intro">
@@ -40,7 +44,9 @@
   <section class="products">
     <h2>Our Products</h2>
     <p>Delicious and healthy juice options for your kids and family</p>
+    <a href="listofproduct.html">
     <button class="btn">View Details</button>
+    </a>
     <div class="product-grid">
       <div class="product-card">
         <img src="material/orange.jpg" alt="Orange Bliss" />
@@ -93,4 +99,12 @@
 </footer>
 
 </body>
+
+<script>
+function toggleMenu() {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('show');
+}
+</script>
+
 </html>
