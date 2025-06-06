@@ -1,29 +1,47 @@
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
-  color: #0f48a9;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+  color: #111;
+  background: white;
 }
 
 .navbar {
+    position: relative;
   display: flex;
   justify-content: space-between;
+  padding: 20px 40px;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #ffe129;
+  border-bottom: 1px solid #eee;
 }
 
 .navbar .logo {
+  font-size: 1.8rem;
   font-weight: bold;
-  font-size: 1.5rem;
-  color: #0f48a9;
+}
+
+.navbar .logo span {
+  font-size: 1rem;
+  margin-left: 8px;
+  color: #333;
 }
 
 .navbar nav a {
-  margin: 0 1rem;
+  margin: 0 10px;
   text-decoration: none;
-  color: #0f48a9;
-  font-weight: 500;
+  color: #333;
+}
+
+/* hide hamhurger in pc */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .product-detail {
@@ -31,11 +49,12 @@ body {
 }
 
 .product-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 3rem;
 }
 
 .product-image {
@@ -46,12 +65,12 @@ body {
 
 .product-info {
   flex: 1;
-  min-width: 250px;
+  max-width: 45%;
 }
 
 .product-price {
   font-size: 1.5rem;
-  color: #ff6004;
+  color: #ff5436;
   font-weight: bold;
 }
 
@@ -74,17 +93,17 @@ body {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border-radius: 6px;
-  border: 2px solid #0f48a9;
+  border: 2px solid #2c3f50;
   cursor: pointer;
 }
 
 .btn-outline {
   background: transparent;
-  color: #0f48a9;
+  color: #2c3f50;
 }
 
 .btn-filled {
-  background: #0f48a9;
+  background: #2c3f50;
   color: white;
 }
 
@@ -104,11 +123,11 @@ body {
 }
 
 .product-card {
-  border: 1px solid #f6b827;
-  border-radius: 8px;
+border: 1px solid #eee;
+  border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  background-color: #fefcf0;
+  background: #fafafa;
 }
 
 .product-card img {
@@ -119,13 +138,12 @@ body {
 
 .product-name {
   font-weight: bold;
-  color: #f68227;
   margin: 0.5rem 0 0.2rem;
 }
 
 .product-size {
   font-size: 0.9rem;
-  color: #7171f8;
+
 }
 
 .review-grid {
@@ -147,7 +165,7 @@ body {
 .reviewer {
   font-weight: bold;
   margin-bottom: 0.5rem;
-  color: #0f48a9;
+  color: #2c3f50;
 }
 
 .stars {
@@ -155,10 +173,94 @@ body {
   margin-left: 0.3rem;
 }
 
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #ffe129;
-  color: #0f48a9;
-  font-size: 0.9rem;
+footer {
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  gap: 40px;                  
+  padding: 20px;
+  color: #333;
+  flex-wrap: wrap;            
 }
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+     .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .navbar nav {
+    display: none;
+  }
+
+  .navbar nav.show {
+    display: flex;
+  }
+
+  .product-hero {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .product-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-info {
+    max-width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-outline, .btn-filled {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .product-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 2rem;
+  }
+
+  .product-card,
+  .review-card {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+}
+
